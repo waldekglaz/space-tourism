@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ul {
+  display: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+}

@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/shared/logo.svg";
+import hamburger from "../assets/shared/icon-hamburger.svg";
+import styles from "./Navbar.module.css";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar">
-      <img src="" alt="" className="logo" />
+    <div className={styles.navbar}>
+      <img src={logo} alt="logo" className="logo" />
       <ul>
         <li className="list-item">
           <Link to="/">
@@ -27,6 +30,9 @@ const Navbar: React.FC = () => {
           </Link>
         </li>
       </ul>
+      <button type="button">
+        <img src={hamburger} alt="hamburger menu" />
+      </button>
     </div>
   );
 };
