@@ -14,14 +14,35 @@ export default function Home() {
           </h1>
 
           <p className="font-barlow text-[#d0d6f9] text-[15px] md:text-[16px] lg:text-[18px] leading-[25px] md:leading-[28px] lg:leading-[32px] max-w-[444px] mx-auto lg:mx-0 mb-8 lg:mb-0">
-            Let's face it; if you want to go to space, you might as well genuinely go to
-            outer space and not hover kind of on the edge of it. Well sit back, and relax
-            because we'll give you a truly out of this world experience!
+            Let's face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of it.
+            Well sit back, and relax because we'll give you a truly out of this
+            world experience!
           </p>
         </div>
 
-        <div className="relative group lg:mt-0 mt-8">
-          <div className="absolute -inset-0 bg-white/10 rounded-full blur transition-all duration-500 group-hover:bg-white/20 group-hover:scale-150"></div>
+        <div className="relative group lg:mt-0 mt-8 animate-float">
+          {/* Orbital ring - rotating background element */}
+          <div className="absolute -inset-12 md:-inset-16 lg:-inset-20 rounded-full border border-white/10 animate-orbit"></div>
+
+          {/* Outer glow - pulsing effect */}
+          <div className="absolute -inset-0 bg-white/10 rounded-full blur transition-all duration-500 group-hover:bg-white/20 group-hover:scale-150 animate-pulse-glow"></div>
+
+          {/* Inner decoration dots - twinkling stars */}
+          <div className="absolute -inset-16 md:-inset-20 lg:-inset-24 rounded-full">
+            {[0, 90, 180, 270].map((angle) => (
+              <div
+                key={angle}
+                className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: `rotate(${angle}deg) translateY(-80px)`,
+                }}
+              />
+            ))}
+          </div>
+
           <Link
             href="/destination"
             className="relative flex items-center justify-center w-[150px] h-[150px] md:w-[242px] md:h-[242px] lg:w-[274px] lg:h-[274px] bg-white rounded-full text-[#0b0d17] font-bellefair text-[20px] md:text-[32px] uppercase tracking-[1.25px] md:tracking-[2px] z-10 hover:ring-[44px] md:hover:ring-[88px] hover:ring-white/10 transition-all duration-300"
